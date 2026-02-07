@@ -53,3 +53,8 @@ coverage/
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
+
+# =========================
+# Prisma
+# =========================
+apps/api/src/generated/*
