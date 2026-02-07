@@ -1,18 +1,27 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import { baseConfig } from "../../packages/config/eslint.base.mjs";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
-  // Override default ignores of eslint-config-next.
   globalIgnores([
-    // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    rules: {
+      ...baseConfig.typescript.rules,
+      'react/no-unescaped-entities': 'warn',
+      'react/jsx-no-target-blank': 'error',
+      'react/jsx-key': 'error',
+      '@next/next/no-html-link-for-pages': 'error',
+      '@next/next/no-img-element': 'warn',
+    },
+  },
 ]);
 
 export default eslintConfig;
