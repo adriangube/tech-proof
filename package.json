@@ -23,7 +23,12 @@
     "build": "turbo build",
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
-    "test": "turbo test"
+    "test": "turbo test",
+      "dev:api": "turbo run dev --filter=api",
+      "dev:web": "turbo run dev --filter=web",
+      "db:migrate:create-only": "npm run db:migrate:create-only -w api",
+      "db:migrate": "npm run db:migrate -w api",
+      "db:studio": "npm run db:studio -w api"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.54.0",
